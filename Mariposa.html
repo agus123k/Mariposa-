@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mariposa Morada Volando</title>
+<style>
+  body {
+    margin: 0; 
+    height: 100vh;
+    background: #f0e7f7; /* fondo clarito */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mariposa {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 3px rgba(80,0,120,0.7));
+    animation: volar 10s linear infinite;
+  }
+
+  /* Alas de la mariposa */
+  .ala {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: linear-gradient(135deg, #7b3fbf 0%, #a17ed0 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: bottom center;
+    animation: batir 0.6s ease-in-out infinite;
+    box-shadow: 0 0 8px #8c4fc1aa;
+  }
+
+  .ala.izq {
+    left: 0;
+    top: 10px;
+    animation-delay: 0s;
+    transform: rotate(20deg);
+  }
+
+  .ala.der {
+    right: 0;
+    top: 10px;
+    animation-delay: 0.3s;
+    transform: rotate(-20deg);
+  }
+
+  /* Cuerpo */
+  .cuerpo {
+    position: absolute;
+    top: 30px;
+    left: 35px;
+    width: 10px;
+    height: 40px;
+    background: linear-gradient(to bottom, #4a1e7e, #7b3fbf);
+    border-radius: 20px;
+    box-shadow: 0 0 10px #6f37b0;
+  }
+
+  /* Animación de las alas que baten */
+  @keyframes batir {
+    0%, 100% {
+      transform: rotate(20deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+  }
+
+  /* Movimiento volando */
+  @keyframes volar {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    25% {
+      transform: translate(200px, -50px) rotate(15deg);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate(400px, 20px) rotate(-15deg);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(600px, -30px) rotate(10deg);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translate(800px, 0) rotate(0deg);
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="mariposa">
+    <div class="ala izq"></div>
+    <div class="ala der"></div>
+    <div class="cuerpo"></div>
+  </div>
+</body>
+</html>
